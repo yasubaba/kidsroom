@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>こぶしほいくえんそつえんじ　おしゃべりべや</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+	    <h1 class="heading">こぶしほいくえんおしゃべりルーム</h1>
+<!--      <p class="note">
+        Change Room mode (before join in a room):
+        <a href="#">mesh</a> / <a href="#sfu">sfu</a>
+</p> -->
+      <div class="room">
+        <div class="entrance">
+          <video id="js-local-stream"></video>
+	  <!-- <span id="js-room-mode"></span>: -->
+          <input type="hidden" value="kidsroom" placeholder="Room Name" id="js-room-id">
+	  <p>
+	    <div>あなたのおなまえは？：
+	      <input type="text" id="js-user-name" />
+	    </div>
+	    <button name="js-user-name-btn" value="あらき">あらき</button>
+	    <button name="js-user-name-btn" value="おく">おく</button>
+	    <button name="js-user-name-btn" value="はる">はる</button>
+	    <button name="js-user-name-btn" value="りゅうた">りゅうた</button>
+	    <button name="js-user-name-btn" value="あゆ">あゆ</button>
+	    <button name="js-user-name-btn" value="けいご">けいご</button>
+	    <button name="js-user-name-btn" value="みずの">みずの</button>
+	  </p>
+          <button id="js-join-trigger">ともだちとおしゃべりする</button>
+	  <button id="js-leave-trigger">バイバ〜イ</button>
+        </div>
+
+        <div class="remote-streams" id="js-remote-streams"></div>
+
+        <div class="sendMessages">
+          <pre class="messages" id="js-messages"></pre>
+          <input type="text" id="js-local-text">
+          <button id="js-send-trigger">テキストチャット</button>
+        </div>
+      </div>
+      <p class="meta" id="js-meta"></p>
+    </div>
+    <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="./key.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
