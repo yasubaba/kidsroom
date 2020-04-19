@@ -40,6 +40,7 @@ const Peer = window.Peer;
   userNameBtn[5].addEventListener('click', () => { userName.value = userNameBtn[5].value;});
   userNameBtn[6].addEventListener('click', () => { userName.value = userNameBtn[6].value;});
   userNameBtn[7].addEventListener('click', () => { userName.value = userNameBtn[7].value;});
+  userNameBtn[8].addEventListener('click', () => { userName.value = userNameBtn[8].value;});
 
   const localStream = await navigator.mediaDevices
     .getUserMedia({
