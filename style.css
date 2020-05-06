@@ -87,13 +87,11 @@ video {
 
 	.entrance .sendMessages {
 		display: none;
-		grid-row: 2 / 3;
-		grid-column: 1 / 2;
 	}
 
-		.sendMessage .messages {
+		.sendMessages .messages {
 			  background-color: #eee;
-			  height: 200px;
+	/*		  height: 200px;*/
 			  padding: 8px;
 			  margin-top: 0;
 			  overflow: auto;
