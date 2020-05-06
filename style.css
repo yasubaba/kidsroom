@@ -37,12 +37,12 @@ video {
 }
 
 .room .entrance {
-	order: 1;
+	order: 2;
 	flex: 0 1 230px;
 }
 
 .room .remote-streams {
-	order: 2;
+	order: 1;
 	flex: 1 1 auto;
 	background-color: #f6fbff;
 }
@@ -50,8 +50,8 @@ video {
 @media sereen and (max-width:730px) {
 	.room {
 		display: block;
-		max-width: 100%;
-		min-width: initial;
+		width: 100%;
+		width: initial;
 		margin: 0 0;
 	}
 
