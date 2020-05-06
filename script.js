@@ -16,6 +16,10 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  const mmute = document.getElementById('js-switch-mmute');
+  const vmute = document.getElementById('js-switch-vmute');
+  const mdevice = document.getElementById('js-switch-mdevice');
+  const vdevice = document.getElementById('js-switch-vdevice');
   const now = new Date();
   const HH = now.getHours();
   const MM = now.getMinutes();
@@ -56,6 +60,26 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
+	
+	//ミュートにしたい！ができてない！！
+  mmute.addEventListener('click', () => {
+	  localStream.getAudioTracks().forEach(track => track.enable = false);
+	console.log('mmute');
+  });
+	//デバイスの切り替えをしたいがわからん！！
+  vdevice.addEventListener('click', () => {
+	  const devices = navigator.mediaDevices.enumerateDevices(); 
+
+	  const newVideoInputDevice = devices.find(
+		  device => device.kind === 'videoinput'
+	  );
+	  const newVideoStream = navigator.mediaDevices.getUserMedia({
+		  video: {
+			  deviceId: newVideoInputDevice.deviceId,
+		  },
+	  });
+	console.log('vdevice');
+  });
 
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
@@ -82,6 +106,7 @@ const Peer = window.Peer;
 	    this.mediaNo = mediaNo;
     }
     const I = new user(peer.id, userName.value, 99)
+    //const chatHistory
 
     room.once('open', () => {
       namingForms.style.display = 'none';

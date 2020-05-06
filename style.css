@@ -3,37 +3,37 @@ body { margin: 0; }
 
 /* global styles */
 video {
-  background-color: #111;
-  width: 100%;
+  	background-color: #111;
+  	width: 100%;
 }
 
 .heading {
-  text-align: center;
-  margin-bottom: 0;
+  	text-align: center;
+  	margin-bottom: 0;
 }
 
 .note {
-  text-align: center;
+ 	text-align: center;
 }
 
 .meta {
-  text-align: center;
-  font-size: .8rem;
-  color: gray;
+  	text-align: center;
+ 	font-size: .8rem;
+  	color: gray;
 }
 
 .container {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+  	text-align: center;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 100%;
 }
 
 /* room */
 .room {
-  display: flex;
-  justify-content: center;
-  margin: 0 8px;
+ 	display: flex;
+ 	justify-content: center;
+  	margin: 0 8px;
 }
 
 .room .entrance {
@@ -42,12 +42,75 @@ video {
 	max-height: 100vh;
 	margin: 0 0;
 }
+	.entrance .local-stream {
+	  	background-color: #000;
+	  	text-align: right;
+		vertical-align: bottom;
+	}
+
+	.naming-forms > h3 {
+	  font-size:12pt;
+	  margin:0 0;
+	}
+
+	.naming-forms .nameBotton {
+		width: 70px;
+		display: inline-block;
+		padding: 0 0.5em;
+		text-decoration: none;
+		background-color: #668ad8;
+		color: #FFF;
+		border-bottom: solid 3px #627295;
+		border-radius: 2px;
+	}
+	.naming-forms .nameBotton:active {
+		-webkit-transform: translateY(2px);
+		transform: translateY(2px);
+		border-bottom: none;
+	}
+
+	.entrance .actBotton {
+		width: 150px;
+		display: inline-block;
+		padding: 0 0.5em;
+		text-decoration: none;
+		background-color: #668ad8;
+		color: #FFF;
+		border-bottom: solid 3px #627295;
+		border-radius: 2px;
+	}
+	.entrance .actBotton:active {
+		-webkit-transform: translateY(2px);
+		transform: translateY(2px);
+		border-bottom: none;
+	}
+
+	.entrance .sendMessages {
+		display: none;
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+	}
+
+		.sendMessage .messages {
+			  background-color: #eee;
+			  height: 200px;
+			  padding: 8px;
+			  margin-top: 0;
+			  overflow: auto;
+			  overflow-style: marquee;
+		}
 
 .room .remote-streams {
 	order: 2;
 	flex: 1 1 auto;
 	background-color: #f6fbff;
 }
+
+	.remote-streams > video {
+	  max-width: 50%;
+	  border: 1px;
+	  /*border-color:#FFF;*/
+	}
 
 @media screen and (max-width:730px) {
 	.room {
@@ -89,65 +152,3 @@ video {
 	}
 }
 
-.entrance .local-stream {
-  background-color: #000;
-  width: 100%;
-  text-align: right;
-  vertical-align: bottom;
-}
-
-.naming-forms > h3 {
-  font-size:12pt;
-  margin:0 0;
-}
-
-.naming-forms .nameBotton {
-	width: 70px;
-	display: inline-block;
-	padding: 0 0.5em;
-	text-decoration: none;
-	background-color: #668ad8;
-	color: #FFF;
-	border-bottom: solid 3px #627295;
-	border-radius: 2px;
-}
-.naming-forms .nameBotton:active {
-	-webkit-transform: translateY(2px);
-	transform: translateY(2px);
-	border-bottom: none;
-}
-
-.entrance .actBotton {
-	width: 150px;
-	display: inline-block;
-	padding: 0 0.5em;
-	text-decoration: none;
-	background-color: #668ad8;
-	color: #FFF;
-	border-bottom: solid 3px #627295;
-	border-radius: 2px;
-}
-.entrance .actBotton:active {
-	-webkit-transform: translateY(2px);
-	transform: translateY(2px);
-	border-bottom: none;
-}
-.remote-streams > video {
-  max-width: 50%;
-  border: 1px;
-  border-color:#FFF;
-}
-
-.entrance .sendMessages {
-  display: none;
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
-}
-
-.room .messages {
-  background-color: #eee;
-  max-height: 200px;
-  padding: 8px;
-  margin-top: 0;
-  overflow: auto;
-}
