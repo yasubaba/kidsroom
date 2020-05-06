@@ -37,18 +37,19 @@ video {
 }
 
 .room .entrance {
-	order: 2;
+	order: 1;
 	flex: 0 1 230px;
 }
 
 .room .remote-streams {
-	order: 1;
+	order: 2;
 	flex: 1 1 auto;
 	background-color: #f6fbff;
 }
 
 @media screen and (max-width:730px) {
 	.room {
+		background-color:#FF2;
 		display: block;
 		width: 100%;
 		width: initial;
