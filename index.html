@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>こぶしほいくえんそつえんじ　おしゃべりべや</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css"> 
   </head>
   <body>
     <div class="container">
@@ -18,30 +18,33 @@
           <video id="js-local-stream"></video>
 	  <!-- <span id="js-room-mode"></span>: -->
           <input type="hidden" value="kidsroom" placeholder="Room Name" id="js-room-id">
-	  <p>
-	    <div>あなたのおなまえは？：
+	  <div id="js-naming-forms" class="naming-forms">
+	    <h3>あなたのおなまえは？：
 	      <input type="text" id="js-user-name" />
-	    </div>
-	    <button name="js-user-name-btn" value="あらき">あらき</button>
-	    <button name="js-user-name-btn" value="おく">おく</button>
-	    <button name="js-user-name-btn" value="はる">はる</button>
-	    <button name="js-user-name-btn" value="りゅうた">りゅうた</button>
-	    <button name="js-user-name-btn" value="あゆ">あゆ</button>
-	    <button name="js-user-name-btn" value="けいご">けいご</button>
-	    <button name="js-user-name-btn" value="みずの">みずの</button>
-	    <button name="js-user-name-btn" value="ゆりか">ゆりか</button>
-	    <button name="js-user-name-btn" value="たくみ">たくみ</button>
-	  </p>
+	    </h3>
+	    <div>
+	      <button name="js-user-name-btn" value="あらき">あらき</button>
+	      <button name="js-user-name-btn" value="おく">おく</button>
+	      <button name="js-user-name-btn" value="はる">はる</button>
+	      <button name="js-user-name-btn" value="りゅうた">りゅうた</button>
+	      <button name="js-user-name-btn" value="あゆ">あゆ</button>
+	      <button name="js-user-name-btn" value="けいご">けいご</button>
+	      <button name="js-user-name-btn" value="みずの">みずの</button>
+	      <button name="js-user-name-btn" value="ゆりか">ゆりか</button>
+	      <button name="js-user-name-btn" value="たくみ">たくみ</button>
+            </div>
+	  </div>
           <button id="js-join-trigger">ともだちとおしゃべりする</button>
-	  <button id="js-leave-trigger">バイバ〜イ</button>
+	  <button id="js-leave-trigger" style="display:none;">バイバ〜イ</button>
         </div>
 
         <div class="remote-streams" id="js-remote-streams"></div>
 
-        <div class="sendMessages">
+        <div id="js-send-messages" class="sendMessages">
+	  <h3>みんなのメッセージ</h3>
           <pre class="messages" id="js-messages"></pre>
           <input type="text" id="js-local-text">
-          <button id="js-send-trigger">テキストチャット</button>
+          <button id="js-send-trigger">送信</button>
         </div>
       </div>
       <p class="meta" id="js-meta"></p>
