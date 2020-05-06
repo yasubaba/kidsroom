@@ -38,7 +38,9 @@ video {
 
 .room .entrance {
 	order: 1;
-	flex: 0 1 230px;
+	flex: 0 0 230px;
+	max-height: 100vh;
+	margin: 0 0;
 }
 
 .room .remote-streams {
@@ -49,15 +51,19 @@ video {
 
 @media screen and (max-width:730px) {
 	.room {
+		display: flex;
+		flex-flow: column nowrap;
+		flex-content: center;
+
 		background-color:#FF2;
-		display: block;
 		width: 100%;
 		width: initial;
 		margin: 0 0;
 	}
 
 	.room .entrance {
-		width: 100%;
+		order: 2;
+
 		display: flex;
 		justify-content: center;
 	}
@@ -78,6 +84,8 @@ video {
 	}
 
 	.room .remote-streams {
+		order: 1;
+
 		width: 100%;
 	}
 }
@@ -91,11 +99,44 @@ video {
 
 .naming-forms > h3 {
   font-size:12pt;
-  margin:0;
+  margin:0 0;
 }
 
-.entrance .remote-streams > video {
-  width: 50%;
+.naming-forms .nameBotton {
+	width: 70px;
+	display: inline-block;
+	padding: 0 0.5em;
+	text-decoration: none;
+	background-color: #668ad8;
+	color: #FFF;
+	border-bottom: solid 3px #627295;
+	border-radius: 2px;
+}
+.naming-forms .nameBotton:active {
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	border-bottom: none;
+}
+
+.entrance .actBotton {
+	width: 150px;
+	display: inline-block;
+	padding: 0 0.5em;
+	text-decoration: none;
+	background-color: #668ad8;
+	color: #FFF;
+	border-bottom: solid 3px #627295;
+	border-radius: 2px;
+}
+.entrance .actBotton:active {
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	border-bottom: none;
+}
+.remote-streams > video {
+  max-width: 50%;
+  border: 1px;
+  border-color:#FFF;
 }
 
 .entrance .sendMessages {
