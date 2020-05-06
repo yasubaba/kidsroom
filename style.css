@@ -57,11 +57,11 @@ video {
 
 	.room .entrance {
 		width: 100%;
-/*		display: flex;
+		display: flex;
 		justify-content: center;
-*/	}
+	}
 
-/*	.entrance .local-stream {
+	.entrance .local-stream {
 		order: 3;
 		flex: 0 1 230px;
 	}
@@ -75,7 +75,7 @@ video {
 		order:2;
 		flex: 1 1 auto;
 	}
-*/
+
 	.room .remote-streams {
 		width: 100%;
 	}
