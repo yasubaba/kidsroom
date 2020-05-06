@@ -39,7 +39,7 @@ video {
 .room .entrance {
 	order: 1;
 	flex: 0 0 230px;
-	max-height: 100vh;
+	/*max-height: 100vh;*/
 	margin: 0 0;
 }
 	.entrance .local-stream {
