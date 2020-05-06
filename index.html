@@ -14,14 +14,16 @@
         <a href="#">mesh</a> / <a href="#sfu">sfu</a>
 </p> -->
       <div class="room">
-        <div class="entrance">
-          <video id="js-local-stream"></video>
+
+	<div class="entrance">
+	  <div class="local-stream">
+            <video id="js-local-stream"></video>
+	    <div id="js-media-controller">mute</div>
+          </div>
 	  <!-- <span id="js-room-mode"></span>: -->
           <input type="hidden" value="kidsroom" placeholder="Room Name" id="js-room-id">
 	  <div id="js-naming-forms" class="naming-forms">
-	    <h3>あなたのおなまえは？：
-	      <input type="text" id="js-user-name" />
-	    </h3>
+	    <h3>あなたのおなまえは？</h3>
 	    <div>
 	      <button name="js-user-name-btn" value="あらき">あらき</button>
 	      <button name="js-user-name-btn" value="おく">おく</button>
@@ -33,19 +35,21 @@
 	      <button name="js-user-name-btn" value="ゆりか">ゆりか</button>
 	      <button name="js-user-name-btn" value="たくみ">たくみ</button>
             </div>
+	      <input type="text" id="js-user-name" />
 	  </div>
           <button id="js-join-trigger">ともだちとおしゃべりする</button>
 	  <button id="js-leave-trigger" style="display:none;">バイバ〜イ</button>
+
+          <div id="js-send-messages" class="sendMessages">
+	    <h3>みんなのメッセージ</h3>
+            <pre class="messages" id="js-messages"></pre>
+            <input type="text" id="js-local-text">
+            <button id="js-send-trigger">送信</button>
+          </div>
         </div>
 
         <div class="remote-streams" id="js-remote-streams"></div>
 
-        <div id="js-send-messages" class="sendMessages">
-	  <h3>みんなのメッセージ</h3>
-          <pre class="messages" id="js-messages"></pre>
-          <input type="text" id="js-local-text">
-          <button id="js-send-trigger">送信</button>
-        </div>
       </div>
       <p class="meta" id="js-meta"></p>
     </div>
