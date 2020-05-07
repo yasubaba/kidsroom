@@ -128,7 +128,7 @@ const Peer = window.Peer;
     messageArray.value.length = 5;
 
     const dataChannel = peer.connect(peer.id, {metadata: user});
-	  console.log(dataChannel);
+	  console.log('$$$DataConnection:'+dataChannel.metadata);
 
     room.once('open', () => {
       // Changing Objects Display.
@@ -138,8 +138,8 @@ const Peer = window.Peer;
       sendMessages.style.display = 'block';
 
       // Sending My Name.
-      const sayhello = `こんにちは`;
-      //const sendname = `#name:${I.name}`;
+      const sayhello = `=== こんにちは ===`;
+      const sendname = `#name:${I.name}`;
       room.send(sayhello);
       //room.send(sendname);
       
@@ -148,7 +148,7 @@ const Peer = window.Peer;
     });
 
     room.on('peerJoin', peerId => {
-	const newMessage = `=== こんにちは ===`;
+	const newMessage = `こんにちは`;
         messages.textContent = messageArray.pushMessage(newMessage, peerId);
     });
 
@@ -165,12 +165,16 @@ const Peer = window.Peer;
 
     room.on('data', ({ data, src }) => {
       // Show a message sent to the room and who sent
-//      messages.textContent += `${src}: ${data}\n`;
-//      if(${data}.indexOf('#name') === 0;){
-//	const user = new user(src, data.substr(7), 98);
-//      }
-//      messages.textContent += `${data}\n`;
-        messages.textContent = messageArray.pushMessage(data, src);
+      if(${data}.indexOf('#name') === 0;){
+	      user.peerId.push(src);
+	      user.name.push(data.substr(7));
+	      console.log(user.peerId);
+	      console.log(user.name);
+	      console.log(user);
+	      return;
+      }
+      messages.textContent += `${data}\n`;
+	console.log('catch dataChannel from:'+src+':'+data);
     });
 
     // for closing room members
