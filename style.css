@@ -29,6 +29,8 @@ video {
   	width: 100%;
 }
 
+h3 { display: block;}
+
 /* room */
 .room {
  	display: flex;
