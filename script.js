@@ -139,9 +139,8 @@ const Peer = window.Peer;
 
       // Sending My Name.
       const sayhello = `=== こんにちは ===`;
-      const sendname = `#name:${I.name}`;
       room.send(sayhello);
-      //room.send(sendname);
+      room.send('#name:'+user.name[0]);
       
       messages.textContent = messageArray.pushMessage(sayhello, user.name[0]);
 
