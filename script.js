@@ -142,7 +142,7 @@ const Peer = window.Peer;
       room.send(sayhello);
       //room.send(sendname);
       
-      messages.textContent = messageArray.pushMessage(sayhello, I.name);
+      messages.textContent = messageArray.pushMessage(sayhello, user.name[0]);
 
     });
 
@@ -194,7 +194,7 @@ const Peer = window.Peer;
       sendTrigger.removeEventListener('click', onClickSend);
 
 	const newMessage = `=== バイバーイ ===`;
-        messages.textContent = messageArray.pushMessage(newMessage, I.name);
+        messages.textContent = messageArray.pushMessage(newMessage, user.name[0]);
 
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
@@ -212,7 +212,7 @@ const Peer = window.Peer;
       room.send(sendMessage);
 
 //      messages.textContent += `${peer.id}: ${localText.value}\n`;
-      messages.textContent = messageArray.pushMessage(sendMessage, I.name);
+      messages.textContent = messageArray.pushMessage(sendMessage, user.name[0]);
       console.log(messageArray.value.join('/'));
       console.log(messageArray.history.join('/'));
       localText.value = '';
