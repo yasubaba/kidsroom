@@ -137,7 +137,7 @@ video {
 
 	.entrance .actButton{
 		order: 2;
-		flex: 0 1 150px;
+		flex: 0 1 auto;
 	}
 
 	.room .remote-streams {
