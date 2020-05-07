@@ -122,7 +122,10 @@ video {
 
 	.entrance .local-stream {
 		order: 3;
-		flex: 0 1 230px;
+		flex: 0 1 auto;
+	}
+	.local-stream > video {
+		max-width: 230px;
 	}
 
 	.entrance .naming-forms {
