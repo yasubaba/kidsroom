@@ -165,7 +165,7 @@ const Peer = window.Peer;
 
     room.on('data', ({ data, src }) => {
       // Show a message sent to the room and who sent
-      if(${data}.indexOf('#name') === 0;){
+      if(data.indexOf('#name') === 0){
 	      user.peerId.push(src);
 	      user.name.push(data.substr(7));
 	      console.log(user.peerId);
