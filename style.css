@@ -53,7 +53,7 @@ video {
 	  margin:0 0;
 	}
 
-	.naming-forms .nameBotton {
+	.naming-forms .nameButton {
 		width: 70px;
 		display: inline-block;
 		padding: 0 0.5em;
@@ -63,13 +63,13 @@ video {
 		border-bottom: solid 3px #627295;
 		border-radius: 2px;
 	}
-	.naming-forms .nameBotton:active {
+	.naming-forms .nameButton:active {
 		-webkit-transform: translateY(2px);
 		transform: translateY(2px);
 		border-bottom: none;
 	}
 
-	.entrance .actBotton {
+	.entrance .actButton {
 		width: 150px;
 		display: inline-block;
 		padding: 0 0.5em;
@@ -79,19 +79,15 @@ video {
 		border-bottom: solid 3px #627295;
 		border-radius: 2px;
 	}
-	.entrance .actBotton:active {
+	.entrance .actButton:active {
 		-webkit-transform: translateY(2px);
 		transform: translateY(2px);
 		border-bottom: none;
 	}
 
-	.entrance .sendMessages {
-		display: none;
-	}
-
 		.sendMessages .messages {
 			  background-color: #eee;
-	/*		  height: 200px;*/
+			  height: 150px;
 			  padding: 8px;
 			  margin-top: 0;
 			  overflow: auto;
@@ -115,10 +111,6 @@ video {
 		display: flex;
 		flex-flow: column nowrap;
 		flex-content: center;
-
-		width: 100%;
-		width: initial;
-		margin: 0 0;
 	}
 
 	.room .entrance {
@@ -130,7 +122,7 @@ video {
 
 	.entrance .local-stream {
 		order: 3;
-		flex: 0 1 230px;
+		flex: 0 0 230px;
 	}
 
 	.entrance .naming-forms {
@@ -139,8 +131,13 @@ video {
 	}
 
 	.entrance .sendMessages{
-		order:2;
+		order: 1;
 		flex: 1 1 auto;
+	}
+
+	.entrance .actButton{
+		order: 2;
+		flex: 0 0 150px;
 	}
 
 	.room .remote-streams {

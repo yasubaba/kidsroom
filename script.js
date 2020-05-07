@@ -4,6 +4,7 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
+      leaveTrigger.style.display = 'none';
   const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
@@ -13,6 +14,7 @@ const Peer = window.Peer;
   const localText = document.getElementById('js-local-text');
   const sendTrigger = document.getElementById('js-send-trigger');
   const sendMessages = document.getElementById('js-send-messages');
+      sendMessages.style.display = 'none';
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
@@ -99,32 +101,54 @@ const Peer = window.Peer;
       mode: 'sfu', //getRoomModeByHash(),
       stream: localStream,
     });
-    const myName = userName.value;
-    const user = function(peerID, name, mediaNo){
-	    this.peerID = peerID;
-	    this.name = name;
-	    this.mediaNo = mediaNo;
+
+	  
+    // user object [0] is myself
+    const user = {
+	    peerId: [peer.id],
+	    name: [userName.value],
+	    media: [localVideo],
+	    addUser(peerId,name,media){
+		    this.peerId.push(peerId);
+		    this.name.push(name);
+		    this.media.push(media);
+	    }
     }
-    const I = new user(peer.id, userName.value, 99)
-    //const chatHistory
+
+    // messageArray for text chat.
+    const messageArray = {
+	    value: [],
+	    history: [],
+	    pushMessage(message,sender) {
+		this.value.push(HH+":"+MM+" "+sender+":"+message);
+	    	this.history.push(this.value.shift());    
+		return this.value.join('\n');
+	    }
+    };
+    messageArray.value.length = 5;
+
+    const dataChannel = peer.connect(peerId, {metadata: user});
 
     room.once('open', () => {
+      // Changing Objects Display.
       namingForms.style.display = 'none';
       joinTrigger.style.display = 'none';
       leaveTrigger.style.display = 'inline';
       sendMessages.style.display = 'block';
 
-      const sayhello = `=== ${I.name}\:こんにちは ===\n`;
-      const sendname = `#name:${I.name}`;
+      // Sending My Name.
+      const sayhello = `こんにちは`;
+      //const sendname = `#name:${I.name}`;
       room.send(sayhello);
-      room.send(sendname);
-      messages.textContent += sayhello;
+      //room.send(sendname);
+      
+      messages.textContent = messageArray.pushMessage(sayhello, I.name);
 
-//      messages.textContent += `=== ${HH}\:${MM}\:${SS}_${I.name}：こんにちは ===\n`;
     });
 
     room.on('peerJoin', peerId => {
-	    messages.textContent += `=== ${peerId} joined ===\n`;
+	const newMessage = `=== こんにちは ===`;
+        messages.textContent = messageArray.pushMessage(newMessage, peerId);
     });
 
     // Render remote stream for new peer join in the room
@@ -144,7 +168,8 @@ const Peer = window.Peer;
 //      if(${data}.indexOf('#name') === 0;){
 //	const user = new user(src, data.substr(7), 98);
 //      }
-      messages.textContent += `${data}\n`;
+//      messages.textContent += `${data}\n`;
+        messages.textContent = messageArray.pushMessage(data, src);
     });
 
     // for closing room members
@@ -156,7 +181,8 @@ const Peer = window.Peer;
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += `=== ${peerId} left ===\n`;
+	const newMessage = `=== バイバーイ ===`;
+        messages.textContent = messageArray.pushMessage(newMessage, peerId);
     });
 
     // for closing myself
@@ -166,7 +192,10 @@ const Peer = window.Peer;
       leaveTrigger.style.display = 'none';
       sendMessages.style.display = 'none';
       sendTrigger.removeEventListener('click', onClickSend);
-      messages.textContent += '== You left ===\n';
+
+	const newMessage = `=== バイバーイ ===`;
+        messages.textContent = messageArray.pushMessage(newMessage, I.name);
+
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
@@ -179,11 +208,13 @@ const Peer = window.Peer;
 
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
-      const sendMessage = `${I.name}\: ${localText.value}\n`;
+      const sendMessage = localText.value;
       room.send(sendMessage);
 
 //      messages.textContent += `${peer.id}: ${localText.value}\n`;
-      messages.textContent += sendMessage;
+      messages.textContent = messageArray.pushMessage(sendMessage, I.name);
+      console.log(messageArray.value.join('/'));
+      console.log(messageArray.history.join('/'));
       localText.value = '';
     }
   });
