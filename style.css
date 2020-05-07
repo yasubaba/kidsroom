@@ -122,7 +122,7 @@ video {
 
 	.entrance .local-stream {
 		order: 3;
-		flex: 0 0 230px;
+		flex: 0 1 230px;
 	}
 
 	.entrance .naming-forms {
@@ -137,7 +137,7 @@ video {
 
 	.entrance .actButton{
 		order: 2;
-		flex: 0 0 150px;
+		flex: 0 1 150px;
 	}
 
 	.room .remote-streams {

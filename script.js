@@ -127,7 +127,7 @@ const Peer = window.Peer;
     };
     messageArray.value.length = 5;
 
-    const dataChannel = peer.connect(peerId, {metadata: user});
+    const dataChannel = peer.connect(peer.id, {metadata: user});
 
     room.once('open', () => {
       // Changing Objects Display.
