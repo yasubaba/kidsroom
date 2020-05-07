@@ -121,7 +121,7 @@ video {
 	}
 
 	.entrance .local-stream {
-		order: 3;
+		order: 4;
 		flex: 0 1 auto;
 	}
 	.local-stream > video {
@@ -134,12 +134,12 @@ video {
 	}
 
 	.entrance .sendMessages{
-		order: 1;
+		order: 2;
 		flex: 1 1 auto;
 	}
 
 	.entrance .actButton{
-		order: 2;
+		order: 3;
 		flex: 0 1 auto;
 	}
 
