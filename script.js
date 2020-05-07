@@ -128,6 +128,7 @@ const Peer = window.Peer;
     messageArray.value.length = 5;
 
     const dataChannel = peer.connect(peer.id, {metadata: user});
+	  console.log(dataChannel);
 
     room.once('open', () => {
       // Changing Objects Display.
